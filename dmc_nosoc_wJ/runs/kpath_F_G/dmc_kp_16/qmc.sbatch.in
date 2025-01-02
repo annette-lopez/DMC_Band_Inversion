@@ -1,0 +1,29 @@
+#!/bin/bash
+#SBATCH -A theory
+#SBATCH -p batch
+#SBATCH -J qmc
+#SBATCH -t 30:00:00
+#SBATCH -N 8
+#SBATCH --ntasks-per-node=2
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=0
+#SBATCH -o qmc.out
+#SBATCH -e qmc.err
+#SBATCH --exclusive
+#SBATCH --export=ALL
+
+
+module load python
+module load PE-gnu/4.0
+# module swap intel intel/2021.1
+module load gcc/9.2.0
+module load hdf5-parallel/1.10.6
+module load fftw/3.3.5
+module load cmake/3.18.4
+module load boost/1.70.0
+module load libxml2/2.9.9
+module load mkl/2018.1.163
+module list
+
+export OMP_NUM_THREADS=16
+mpirun -np 16 /home/i88/bi2te3/qmcpack/qmcpack_cades_cpu_comp qmc.in.xml

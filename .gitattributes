@@ -1,2 +1,0 @@
-dmc_nosoc_wJ filter=lfs diff=lfs merge=lfs -text
-dmc_* filter=lfs diff=lfs merge=lfs -text
