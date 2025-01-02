@@ -1,2 +1,1 @@
-dmc_kp* filter=lfs diff=lfs merge=lfs -text
 dmc_nosoc_wJ/runs/kpath_G_L filter=lfs diff=lfs merge=lfs -text
